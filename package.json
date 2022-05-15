@@ -1,0 +1,24 @@
+{
+  "name": "pig-game",
+  "version": "1.0.0",
+  "description": "A simple browser game",
+  "default": "/index.html",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html --dist-dir ./dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DeevDevs/pig-game.git"
+  },
+  "author": "Dmitriy Vnuchkov (based on Jonas Shmedtmann's course)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DeevDevs/pig-game/issues"
+  },
+  "homepage": "https://github.com/DeevDevs/pig-game#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "parcel": "^2.5.0"
+  }
+}
