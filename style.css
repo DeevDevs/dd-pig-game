@@ -30,7 +30,7 @@ main {
   filter: blur();
   box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.25);
   border-radius: 9px;
-  overflow: hidden;
+  /* overflow: hidden; */
   display: flex;
 }
 
@@ -169,3 +169,54 @@ main {
 }
 
 /* @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap'); */
+
+.instructions-container {
+  position: absolute;
+  background-color: #210527dc;
+  width: 102rem;
+  height: 62rem;
+  border-radius: 9px;
+  box-shadow: 0 7px 20px #c7365f;
+  transition: opacity 0.4s linear;
+  opacity: 0;
+  display: none;
+}
+
+.instructions-container p {
+  font-size: 3rem;
+  color: #e7c9d2;
+  padding: 3rem;
+  margin-top: 4rem;
+  line-height: 1.4;
+}
+
+.inst-btn {
+  position: absolute;
+  font-size: 1.5rem;
+  background-color: #e7c9d2;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  transition: transform 0.1s linear;
+}
+
+.btn-close-instructions {
+  right: 3rem;
+  top: 2rem;
+}
+
+.btn-open-instructions {
+  right: 2.5rem;
+  top: -4rem;
+  transition: opacity 0.35s linear;
+}
+
+.inst-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 3px 4px 0;
+}
+
+.inst-btn:active {
+  /* transform: translateY(0); */
+  box-shadow: 0 3px 4px inset;
+}

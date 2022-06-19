@@ -12,6 +12,9 @@ const diceAll = document.querySelectorAll('.dice');
 const btnNew = document.querySelector('.btn--new');
 const btnRoll = document.querySelector('.btn--roll');
 const btnHold = document.querySelector('.btn--hold');
+const btnCloseInstructions = document.querySelector('.btn-close-instructions');
+const btnOpenInstructions = document.querySelector('.btn-open-instructions');
+const instructionsContainer = document.querySelector('.instructions-container');
 
 const switchPlayer = function () {
   document.getElementById(`current--${activePlayer}`).textContent = 0;
@@ -86,6 +89,20 @@ btnHold.addEventListener('click', function () {
       switchPlayer();
     }
   }
+});
+
+btnCloseInstructions.addEventListener('click', function () {
+  instructionsContainer.style.opacity = '0';
+  btnOpenInstructions.style.display = 'block';
+  setTimeout(() => (instructionsContainer.style.display = 'none'), 300);
+  setTimeout(() => (btnOpenInstructions.style.opacity = '1'), 50);
+});
+
+btnOpenInstructions.addEventListener('click', function () {
+  btnOpenInstructions.style.opacity = '0';
+  setTimeout(() => (btnOpenInstructions.style.display = 'none'), 350);
+  instructionsContainer.style.display = 'block';
+  setTimeout(() => (instructionsContainer.style.opacity = '1'), 50);
 });
 
 btnNew.addEventListener('click', init);

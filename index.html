@@ -24,6 +24,7 @@
           <p class="current-label">Current</p>
           <p class="current-score" id="current--1">0</p>
         </div>
+        <button class="inst-btn btn-open-instructions">See Instructions</button>
       </section>
 
       <img
@@ -61,6 +62,24 @@
       <button class="btn btn--roll">🎲 Roll dice</button>
       <button class="btn btn--hold">📥 Hold</button>
     </main>
+    <div class="instructions-container">
+      <button class="inst-btn btn-close-instructions">
+        Close Instructions
+      </button>
+      <p>
+        This game has pretty simple instructions. The player has to roll a dice
+        to get the points. If the value on a dice is higher than '1' - this
+        value is added to the 'current bank' of the player. Then, he can roll
+        the dice again, or save the earned points in the 'main bank'. Once he
+        saves the points in the 'main bank', the turn goes to the second player.
+        The player can roll as many times as he wants to increase the total
+        number of points in his 'current bank'. However, if he rolls '1', his
+        'current bank' will be emptied immediately and the turn will go to the
+        second player. So, there is always a risk for the player, when he rolls
+        a dice having some points in the 'current bank' already. Eventually, the
+        player who reaches 100 points in his 'main bank' first - wins!
+      </p>
+    </div>
     <script defer type="module" src="script.js"></script>
   </body>
 </html>
