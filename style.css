@@ -197,18 +197,18 @@ main {
   border: none;
   border-radius: 0.5rem;
   padding: 0.5rem;
-  transition: transform 0.1s linear;
 }
 
 .btn-close-instructions {
   right: 3rem;
   top: 2rem;
+  transition: transform 0.1s linear;
 }
 
 .btn-open-instructions {
   right: 2.5rem;
   top: -4rem;
-  transition: opacity 0.35s linear;
+  transition: opacity 0.35s linear, transform 0.1s linear;
 }
 
 .inst-btn:hover {
