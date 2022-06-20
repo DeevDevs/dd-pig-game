@@ -7,7 +7,6 @@ const currentScorePlayer0 = document.getElementById('current--0');
 const currentScorePlayer1 = document.getElementById('current--1');
 const player0El = document.querySelector('.player--0');
 const player1El = document.querySelector('.player--1');
-// const diceEl = document.querySelector('.dice');
 const diceAll = document.querySelectorAll('.dice');
 const btnNew = document.querySelector('.btn--new');
 const btnRoll = document.querySelector('.btn--roll');
