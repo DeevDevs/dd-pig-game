@@ -15,7 +15,7 @@ const btnOpenInstructions = document.querySelector('.btn-open-instructions');
 const instructionsContainer = document.querySelector('.instructions-container');
 
 /**
- * switches players once the turn is over
+ * switches players once the turn is over (передает ход другому игроку)
  * @param {}
  * @returns {undefined}
  * @author Jonas Shmedtmann
@@ -31,7 +31,7 @@ const switchPlayer = function () {
 let scores, currentScore, activePlayer, playing;
 
 /**
- * returns value and styles to their default parameters
+ * returns value and styles to their default parameters (возвращает стили и параметры к изначальным значениям)
  * @param {}
  * @returns {undefined}
  * @author Jonas Shmedtmann and Dmitriy Vnuchkov
@@ -61,7 +61,7 @@ const init = function () {
 init();
 
 /**
- * imitates rolling a dice and adds points to the current score
+ * imitates rolling a dice and adds points to the current score (имитирует пробрасывание кубика и добавляет очки во временный банк)
  * @param {}
  * @returns {undefined}
  * @author Jonas Shmedtmann and Dmitriy Vnuchkov
@@ -82,7 +82,7 @@ btnRoll.addEventListener('click', function () {
 });
 
 /**
- * adds current score to the total player score, and triggers the player switch
+ * adds current score to the total player score, and triggers the player switch (добавляет очки из временного банка в постоянный и запускает смену игрока)
  * @param {}
  * @returns {undefined}
  * @author Jonas Shmedtmann
@@ -109,7 +109,7 @@ btnHold.addEventListener('click', function () {
 });
 
 /**
- * hides the instructions
+ * hides the instructions (прячет инструкции)
  * @param {}
  * @returns {undefined}
  * @author Dmitriy Vnuchkov
@@ -122,7 +122,7 @@ btnCloseInstructions.addEventListener('click', function () {
 });
 
 /**
- * displays the instructions
+ * displays the instructions (отображает инструкции)
  * @param {}
  * @returns {undefined}
  * @author Dmitriy Vnuchkov
