@@ -21,6 +21,7 @@ body {
 }
 
 /* LAYOUT */
+
 main {
   position: relative;
   width: 100rem;
@@ -168,7 +169,7 @@ main {
   display: none;
 }
 
-/* @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap'); */
+/* INSTRUCTIONS */
 
 .instructions-container {
   position: absolute;
@@ -217,6 +218,5 @@ main {
 }
 
 .inst-btn:active {
-  /* transform: translateY(0); */
   box-shadow: 0 3px 4px inset;
 }
