@@ -1,6 +1,5 @@
 'use strict';
 
-//Selecting Elements
 const score0El = document.querySelector('#score--0');
 const score1El = document.getElementById('score--1');
 const currentScorePlayer0 = document.getElementById('current--0');
@@ -15,6 +14,12 @@ const btnCloseInstructions = document.querySelector('.btn-close-instructions');
 const btnOpenInstructions = document.querySelector('.btn-open-instructions');
 const instructionsContainer = document.querySelector('.instructions-container');
 
+/**
+ * switches players once the turn is over
+ * @param {}
+ * @returns {undefined}
+ * @author Jonas Shmedtmann
+ */
 const switchPlayer = function () {
   document.getElementById(`current--${activePlayer}`).textContent = 0;
   currentScore = 0;
@@ -25,6 +30,12 @@ const switchPlayer = function () {
 
 let scores, currentScore, activePlayer, playing;
 
+/**
+ * returns value and styles to their default parameters
+ * @param {}
+ * @returns {undefined}
+ * @author Jonas Shmedtmann and Dmitriy Vnuchkov
+ */
 const init = function () {
   if (player0El.classList.contains('player--winner')) {
     player0El.classList.remove('player--winner');
@@ -35,7 +46,7 @@ const init = function () {
   } else if (playing && player1El.classList.contains('player--active')) {
     player0El.classList.toggle('player--active');
     player1El.classList.toggle('player--active');
-  } //If the element has the class already, javascript WILL NOT ADD it again, and if the element has no class that we are trying to remove, it will skip the step without any mistake
+  }
   score0El.textContent = 0;
   score1El.textContent = 0;
   activePlayer = 0;
@@ -44,31 +55,38 @@ const init = function () {
   currentScore = 0;
   currentScorePlayer0.textContent = currentScore;
   currentScorePlayer1.textContent = currentScore;
-  // diceEl.classList.add('hidden');
   diceAll[4].classList.remove('hidden');
 };
 
 init();
 
-// ROLLING A DICE FUNTION
+/**
+ * imitates rolling a dice and adds points to the current score
+ * @param {}
+ * @returns {undefined}
+ * @author Jonas Shmedtmann and Dmitriy Vnuchkov
+ */
 btnRoll.addEventListener('click', function () {
   if (playing) {
     const diceNum = Math.trunc(Math.random() * 6) + 1;
-    // diceEl.classList.remove('hidden');
-    // diceEl.src = `dice-${diceNum}.png`; //This is how you manipulate the Attribute features in tags
     diceAll.forEach(el => el.classList.add('hidden'));
     diceAll[diceNum - 1].classList.remove('hidden');
     if (diceNum !== 1) {
       currentScore += diceNum;
-      document.getElementById(
-        `current--${activePlayer}` // Creating dynamic variables
-      ).textContent = currentScore;
+      document.getElementById(`current--${activePlayer}`).textContent =
+        currentScore;
     } else {
       switchPlayer();
     }
   }
 });
 
+/**
+ * adds current score to the total player score, and triggers the player switch
+ * @param {}
+ * @returns {undefined}
+ * @author Jonas Shmedtmann
+ */
 btnHold.addEventListener('click', function () {
   if (playing) {
     scores[activePlayer] += currentScore;
@@ -90,6 +108,12 @@ btnHold.addEventListener('click', function () {
   }
 });
 
+/**
+ * hides the instructions
+ * @param {}
+ * @returns {undefined}
+ * @author Dmitriy Vnuchkov
+ */
 btnCloseInstructions.addEventListener('click', function () {
   instructionsContainer.style.opacity = '0';
   btnOpenInstructions.style.display = 'block';
@@ -97,6 +121,12 @@ btnCloseInstructions.addEventListener('click', function () {
   setTimeout(() => (btnOpenInstructions.style.opacity = '1'), 50);
 });
 
+/**
+ * displays the instructions
+ * @param {}
+ * @returns {undefined}
+ * @author Dmitriy Vnuchkov
+ */
 btnOpenInstructions.addEventListener('click', function () {
   btnOpenInstructions.style.opacity = '0';
   setTimeout(() => (btnOpenInstructions.style.display = 'none'), 350);
@@ -105,41 +135,3 @@ btnOpenInstructions.addEventListener('click', function () {
 });
 
 btnNew.addEventListener('click', init);
-
-// INSTEAD OF WRITING ALL THE CODE BELOW INSIDE THE BUTTON, IT IS MOVED AS A SEPARATE FUNCTION TO WORK AT THE PAGE LOAD AND AFTER THE GAME IS RESET
-
-// if (player0El.classList.contains('player--winner')) {
-//   player0El.classList.remove('player--winner');
-//   player0El.classList.add('player--active');
-// } else if (player1El.classList.contains('player--winner')) {
-//   player1El.classList.remove('player--winner');
-//   player0El.classList.add('player--active');
-// } else if (playing && player1El.classList.contains('player--active')) {
-//   player0El.classList.toggle('player--active');
-//   player1El.classList.toggle('player--active');
-// } //If the element has the class already, javascript WILL NOT ADD it again, and if the element has no class that we are trying to remove, it will skip the step without any mistake
-// score0El.textContent = 0;
-// score1El.textContent = 0;
-// activePlayer = 0;
-// playing = true;
-// scores[0] = 0;
-// scores[1] = 0;
-// currentScore = 0;
-// currentScorePlayer0.textContent = currentScore;
-// currentScorePlayer1.textContent = currentScore;
-// diceEl.classList.add('hidden');
-
-// THERE IS A FUNCTION FOR THIS CODE
-
-// document.getElementById(`current--${activePlayer}`).textContent = 0;
-// currentScore = 0;
-// // document
-// //   .querySelector(`.player--${activePlayer}`)
-// //   .classList.remove('player--active');
-// // activePlayer = activePlayer === 0 ? 1 : 0;
-// // document
-// //   .querySelector(`.player--${activePlayer}`)
-// //   .classList.add('player--active'); // THIS IS HOW I DECIDED TO SWITCH STYLES BETWEEN PLAYERS
-// activePlayer = activePlayer === 0 ? 1 : 0;
-// player0El.classList.toggle('player--active'); // Toggle helps to check if the class is there or not. Then, it changes the condition to the opposite.
-// player1El.classList.toggle('player--active'); // THIS IS HOW JONAS DECIDED TO SWITCH STYLES BETWEEN PLAYERS
