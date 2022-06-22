@@ -18,7 +18,7 @@ const instructionsContainer = document.querySelector('.instructions-container');
  * switches players once the turn is over (передает ход другому игроку)
  * @param {}
  * @returns {undefined}
- * @author Jonas Shmedtmann
+ * @author Dmitriy Vnuchkov (original idea by Jonas Shmedtmann)
  */
 const switchPlayer = function () {
   document.getElementById(`current--${activePlayer}`).textContent = 0;
@@ -34,7 +34,7 @@ let scores, currentScore, activePlayer, playing;
  * returns value and styles to their default parameters (возвращает стили и параметры к изначальным значениям)
  * @param {}
  * @returns {undefined}
- * @author Jonas Shmedtmann and Dmitriy Vnuchkov
+ * @author Dmitriy Vnuchkov and Jonas Shmedtmann
  */
 const init = function () {
   if (player0El.classList.contains('player--winner')) {
@@ -64,7 +64,7 @@ init();
  * imitates rolling a dice and adds points to the current score (имитирует пробрасывание кубика и добавляет очки во временный банк)
  * @param {}
  * @returns {undefined}
- * @author Jonas Shmedtmann and Dmitriy Vnuchkov
+ * @author Dmitriy Vnuchkov and Jonas Shmedtmann
  */
 btnRoll.addEventListener('click', function () {
   if (playing) {
@@ -85,7 +85,7 @@ btnRoll.addEventListener('click', function () {
  * adds current score to the total player score, and triggers the player switch (добавляет очки из временного банка в постоянный и запускает смену игрока)
  * @param {}
  * @returns {undefined}
- * @author Jonas Shmedtmann
+ * @author Dmitriy Vnuchkov (original idea by Jonas Shmedtmann)
  */
 btnHold.addEventListener('click', function () {
   if (playing) {
